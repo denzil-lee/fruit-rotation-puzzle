@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://borjca0x2vqfb"]
+
+[ext_resource type="Script" uid="uid://dvifhefvxhdq3" path="res://Scripts/main.gd" id="1_gl6un"]
+[ext_resource type="Texture2D" uid="uid://dt17ytek11fy8" path="res://Images/Background.png" id="2_j5yw3"]
+
+[sub_resource type="Theme" id="Theme_kldst"]
+default_font_size = 30
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gl6un")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j5yw3")
+expand_mode = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -215.0
+offset_bottom = 235.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+columns = 4
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Notifier" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme = SubResource("Theme_kldst")
+text = "60s Left"
+horizontal_alignment = 1
