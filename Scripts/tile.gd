@@ -25,7 +25,7 @@ func _gui_input(event: InputEvent) -> void:
 
 func _animate_rotation() -> void:
 	var current = rotation_degrees
-	var target = fmod(current + snap_degrees, 360)
+	var target = fmod(current + snap_degrees, 450)
 	var tw = create_tween()
 	tw.tween_property(self, "rotation_degrees", target, tween_duration) \
 	  .set_trans(Tween.TRANS_CUBIC) \
@@ -43,6 +43,8 @@ func _on_tween_complete() -> void:
 func _lock_for_seconds(duration: float) -> void:
 	# disable further clicks
 	mouse_filter = MOUSE_FILTER_IGNORE
+	# darkens the sprite
+	modulate.a8 = 100
 	# create a one-shot timer
 	var t = Timer.new()
 	t.wait_time = duration
@@ -53,4 +55,5 @@ func _lock_for_seconds(duration: float) -> void:
 	t.timeout.connect(func():
 		mouse_filter = MOUSE_FILTER_STOP
 		t.queue_free()
+		modulate.a8 = 500
 	)
